@@ -1,0 +1,83 @@
+
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Tabela com os dados dos clientes da Northwind"
+    columns:
+      - name: customer_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_employee_territories
+    description: "Tabela com a relação dos empregados e os territórios aos quais eles estão alocados"
+    columns:
+      - name: employee_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - not_null
+    
+
+  - name: dim_order_details
+    description: "Tabela contendo a especificação de produto de cada uma das vendas. Cada linha é um produto de uma venda"
+    columns:
+      - name: order_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - not_null
+
+  - name: dim_products_and_suppliers
+    description: "Tabela contendo informações sobre cada um dos produtos e seus fornecedores"
+    columns:
+      - name: product_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null
+      - name: discontinued
+        description: "Produto ativo ou descontinuado"
+        # data_tests:
+        #   - boolean_accepted_values
+
+  - name: dim_regions
+    description: "Informaçõoes sobre as regiões"
+    columns:
+      - name: region_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null
+      - name: region_name
+        description: "Nome da região"
+        data_tests:
+          - accepted_values:
+              values: ['northern', 'eastern', 'southern', 'western']
+
+  - name: dim_shippers
+    description: "Informações sobre as empresas de entrega dos produtos"
+    columns:
+      - name: shipper_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_territories
+    description: "Dados sobre os territorios e suas regiões"
+    columns:
+      - name: territory_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fact_orders
+    description: "Tabela contendo todos os pedidos no período analisado"
+    columns:
+      - name: order_id
+        description: "Chave primária da tabela"
+        data_tests:
+          - unique
+          - not_null

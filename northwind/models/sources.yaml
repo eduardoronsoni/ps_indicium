@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: ps-indicium-437714
+    schema: raw_erp
+
+    tables:
+      - name: categories
+        identifier: stg_categories
+
+      - name: customers
+        identifier: stg_customers
+
+      - name: employee_territories
+        identifier: stg_employee_territories
+
+      - name: employees
+        identifier: stg_employees
+
+      - name: order_details
+        identifier: stg_order_details
+
+      - name: orders
+        identifier: stg_orders
+      - name: products
+        identifier: stg_products
+
+      - name: regions
+        identifier: stg_regions
+      
+      - name: shippers
+        identifier: stg_shippers
+
+      - name: suppliers
+        identifier: stg_suppliers
+
+      - name: territories
+        identifier: stg_territories
+
+      - name: us_states
+        identifier: stg_us_states
+
+      
+    
